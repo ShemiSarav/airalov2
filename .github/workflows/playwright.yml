@@ -9,9 +9,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      API_BASE_URL: ${{ vars.API_BASE_URL }}
+      BASE_URL: ${{ vars.BASE_URL }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: print environment variables
+        run: printenv
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

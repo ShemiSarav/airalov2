@@ -7,7 +7,7 @@ import { PackageModal } from '../../pages/PackageModal';
 // This test validates that the popup modal for the first priced eSIM package for Japan 
 // contains the correct operator title, coverage, data, validity, and price information.
 
-test('Airalo Japan eSIM package details are correct', async ({ page }) => {
+test('@smoke Airalo Japan eSIM package details are correct', async ({ page }) => {
   const home = new HomePage(page);
   const popup = new PackageModal(page);
 
@@ -27,5 +27,6 @@ test('Airalo Japan eSIM package details are correct', async ({ page }) => {
   await test.step('Verify Package Details', async () => {
       await popup.verifyPackageDetails();
   })
+  
 
 });
